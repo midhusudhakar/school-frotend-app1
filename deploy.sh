@@ -31,6 +31,15 @@ fi
 S3_BUCKET="schoollm-test-app1"
 echo "Deploying to the $S3_BUCKET bucket"
 
+
+{
+echo start
+echo "My first name is $1"
+echo "My surname is $2"
+echo "Total number of arguments is $#"
+echo end
+} 
+
 # Install the AWS CLI so we can publish to S3
 pip install awscli --upgrade --user
 
