@@ -8,18 +8,18 @@ PRODUCTION_BRANCH="production"
 # From that, we'll know:
 #   - the S3 bucket to sync assets with
 #   - the CloudFront distribution for which to create an invalidation
-NODE_ENV=''
+
 CLOUDFRONT_DIST_ID=''
 if [[ $TRAVIS_BRANCH == $STAGING_BRANCH ]]; then
-  NODE_ENV="staging"
+  
   CLOUDFRONT_DIST_ID=$CLOUDFRONT_DIST_ID_STAGING
   # TODO: Change this to the command that builds your app for staging
-  yarn build:staging
+  yarn build
 elif [[ $TRAVIS_BRANCH == $PRODUCTION_BRANCH ]]; then
-  NODE_ENV="production"
+
   CLOUDFRONT_DIST_ID=$CLOUDFRONT_DIST_ID_STAGING
   # TODO: Change this to the command that builds your app for production
-  yarn build:production
+  yarn build
 else
   # Don't want to deploy if it's not one of the above branches
   echo "Not deploying"
@@ -35,7 +35,7 @@ echo "Deploying to the $S3_BUCKET bucket"
 {
 echo start
 echo "TRAVIS_BRANCH is : $TRAVIS_BRANCH"
-echo "CLOUDFRONT_DIST_IDis $CLOUDFRONT_DIST_ID"
+echo "CLOUDFRONT_DIST_ID is $CLOUDFRONT_DIST_ID"
 echo "Total number of arguments is $#"
 echo end
 } 
