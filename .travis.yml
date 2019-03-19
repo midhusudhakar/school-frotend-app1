@@ -2,6 +2,15 @@ sudo: required
 language: node_js
 node_js:
 - node
+notifications:
+  email:
+    on_success: change # only if status change from fail to success
+    on_failure: always # if there is a fail
+    recipients:
+      - midhun@zeefasys.com
+cache:
+  directories:
+    - node_modules
 after_success:
 - chmod +x deploy.sh
 - "./deploy.sh"
