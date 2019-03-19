@@ -34,8 +34,8 @@ echo "Deploying to the $S3_BUCKET bucket"
 
 {
 echo start
-echo "My first name is $1"
-echo "My surname is $2"
+echo "TRAVIS_BRANCH is : $TRAVIS_BRANCH"
+echo "CLOUDFRONT_DIST_IDis $CLOUDFRONT_DIST_ID"
 echo "Total number of arguments is $#"
 echo end
 } 
